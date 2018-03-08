@@ -1,6 +1,7 @@
 # AIControl
 
-Simulates control background experiments with machine learning from ENCODE control data.
+![alt text](images/concept.png)
+AIControl simulates control background experiments with machine learning from ENCODE control data.
 
 ## Required libraries for AIControl
 
