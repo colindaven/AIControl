@@ -12,7 +12,7 @@ Use ```pkg.add()``` and ```pkg.clone()``` to install libraries.
 - PureSeq (https://github.com/slundberg/PureSeq.jl)
 
 ## Paper
-AIControl:  Replacing matched control experiments with machine learning improves ChIP-seq peak identification ![BioRxiv](https://www.biorxiv.org/content/early/2018/03/08/278762?rss=1)
+AIControl:  Replacing matched control experiments with machine learning improves ChIP-seq peak identification ([BioRxiv](https://www.biorxiv.org/content/early/2018/03/08/278762?rss=1))
 
 ## Usage
 1. Download binned control data from the link on our project website (http://suinlee.cs.washington.edu/projects/aicontrol/). Alternatively, you can bin your own data using ```WriteBinned``` function in the PureSeq package. We are working on the better compression of binned data.  
