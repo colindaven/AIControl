@@ -17,7 +17,7 @@ AIControl:  Replacing matched control experiments with machine learning improves
 ## Usage
 1. Download binned control data from the link on our project website (http://suinlee.cs.washington.edu/projects/aicontrol/). Alternatively, you can bin your own data using ```WriteBinned``` function in the PureSeq package. We are working on the better compression of binned data.  
 2. Set parameters appropriately in ```AIControl.config```. Particularly, ```ctrldir```, ```xtxdir```, and ```metafile``` are important. 
-3. Call ```julia aicontrol.jl _your_bamfile_```
+3. Call ```julia aicontrol.jl _your_bamfile_hg19mapped_```
 
 <!---
 ## TOD0
