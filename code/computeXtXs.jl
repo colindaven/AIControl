@@ -104,5 +104,5 @@ controlfiles = checkControlAvailability(temp, configs["ctrldir"], "bin$(binsize)
 writedlm("xtx/ctrllist.dlm", controlfiles)
 println("Computing XtX matrices for $(length(controlfiles)) control files ...")
 
-#compute_xtx(controlfiles, true, -1, configs["ctrldir"], verbose=true)
-#compute_xtx(controlfiles, false, -1, configs["ctrldir"], verbose=true)
+compute_xtx(controlfiles, true, -1, configs["ctrldir"], verbose=true)
+compute_xtx(controlfiles, false, -1, configs["ctrldir"], verbose=true)

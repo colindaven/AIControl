@@ -221,7 +221,7 @@ function compute_fits(targetFile, controlFiles, weight1, weight2, ifForward, num
     regression_fit
 end
 
-function callpeaks(targetFile, regfit, ifForward, num_chroms, binsize; base=1)
+function callpeaks(targetFile, regfit, ifForward, num_chroms, binsize; base=1, smoothing=false)
        
     if ifForward == true direction = ".f" else direction = ".r" end #.r or .f for file suffix.
     if num_chroms > length(ReferenceContigs_hg38.sizes) || num_chroms < 1
@@ -238,9 +238,11 @@ function callpeaks(targetFile, regfit, ifForward, num_chroms, binsize; base=1)
     close(b)
 
     #smoothing ?
-    smooth1000 = smooth(regfit, 10)
-    smooth5000 = smooth(regfit, 50)
-    smooth10000 = smooth(regfit, 100)
+    if smoothing
+        smooth1000 = smooth(regfit, 10)
+        smooth5000 = smooth(regfit, 50)
+        smooth10000 = smooth(regfit, 100)
+    end
     m = mean(target)
     
     pvals = zeros(Float32, Int(ceil(sum(ReferenceContigs_hg38.sizes[1:num_chroms])/binsize)))
@@ -248,7 +250,11 @@ function callpeaks(targetFile, regfit, ifForward, num_chroms, binsize; base=1)
     folds = zeros(Float32, Int(ceil(sum(ReferenceContigs_hg38.sizes[1:num_chroms])/binsize)))
 
     for i in 1:length(regfit)
-        lambda = maximum([regfit[i], smooth1000[i], smooth5000[i], smooth10000[i], m, base])
+        if smoothing
+            lambda = maximum([regfit[i], smooth1000[i], smooth5000[i], smooth10000[i], base])
+        else
+            lambda = maximum([regfit[i], base])
+        end
         pval = -1*log(10, 1-cdf(Poisson(lambda), target[i]))
         fold = target[i]/lambda
         if pval == Inf pval=1000.0 end
@@ -342,6 +348,10 @@ end
 metadata = readtable(configs["metafile"])
 basectrls = collect(metadata[(metadata[:IFCTRL].== true), :ID])
 temp = ["$(i).bam" for i in basectrls]
+
+########################################################
+#ToDo: Add check to see if you need to recompute xtxs. #  
+########################################################
 controlfiles, mask = checkControlAvailability(temp, configs["ctrldir"], "bin$(binsize)")
 
 println("Computing weights...")
