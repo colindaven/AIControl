@@ -19,4 +19,9 @@ AIControl:  Replacing matched control experiments with machine learning improves
 2. Set parameters appropriately in ```AIControl.config```. Particularly, ```ctrldir```, ```xtxdir```, and ```metafile``` are important. 
 3. Call ```julia aicontrol.jl _your_bamfile_```
 
+%## TOD0
+% - switch binning to UInt16 instead of UInt32.
+% - add check for recomputing XtXs.
+% - merge PureSeq code to this repo if possible.
+
 For questions, please e-mail hiranumn at cs dot washington dot edu
