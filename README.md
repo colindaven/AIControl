@@ -1,7 +1,7 @@
 # AIControl
 
+AIControl simulates/imputes control experiments and identify peaks for your ChIPseq data.
 ![alt text](images/concept.png)
-AIControl simulates control background experiments with machine learning from ENCODE control data.
 
 ## Required libraries for AIControl
 
