@@ -6,10 +6,10 @@ AIControl simulates/imputes control experiments and identify peaks for your ChIP
 ## Required libraries for AIControl
 
 Use ```Pkg.add()``` and ```Pkg.clone()``` to install libraries.
-- DataFrames
-- JLD
-- Distributions
-- PureSeq (https://github.com/slundberg/PureSeq.jl)
+- Pkg.add("DataFrames")
+- Pkg.add("JLD")
+- Pkg.add("Distributions")
+- Pkg.clone("https://github.com/slundberg/PureSeq.jl")
 
 ## Paper
 AIControl:  Replacing matched control experiments with machine learning improves ChIP-seq peak identification ([BioRxiv](https://www.biorxiv.org/content/early/2018/03/08/278762?rss=1))
