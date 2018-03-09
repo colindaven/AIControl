@@ -5,7 +5,7 @@ AIControl simulates/imputes control experiments and identify peaks for your ChIP
 
 ## Required libraries for AIControl
 
-Use ```pkg.add()``` and ```pkg.clone()``` to install libraries.
+Use ```Pkg.add()``` and ```Pkg.clone()``` to install libraries.
 - DataFrames
 - JLD
 - Distributions
